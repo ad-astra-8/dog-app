@@ -1,17 +1,16 @@
 'use strict';
 
 function getDogImage(howManyImages) {
-    console.log('getDogImage()');
+    // console.log('getDogImage()');
     fetch(`https://dog.ceo/api/breeds/image/random/${howManyImages}`)
         .then(response => response.json())
         .then(responseJson =>
             displayResults(responseJson))
-    //   .catch(error => alert('Something went wrong. Try again later.'));
 }
 
 function displayResults(responseJson) {
-    console.log(responseJson);
-    console.log('displayResults()');
+    // console.log(responseJson);
+    // console.log('displayResults()');
     $('.results').html('');
     // display every image in the responseJson.message
     for (let i = 0; i < responseJson.message.length; i++) {
@@ -25,11 +24,11 @@ function displayResults(responseJson) {
 
 
 function watchForm() {
-    $(document).on('click', '.submit', function (event) {
-        console.log('watchForm()');
+    $('form').on('submit', function (event) {
+        // console.log('watchForm()');
         event.preventDefault();
         let howManyImages = $("#dog-pics-num").val();
-        console.log(howManyImages);
+        // console.log(howManyImages);
         getDogImage(howManyImages);
     });
 }
